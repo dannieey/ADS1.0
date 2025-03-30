@@ -1,27 +1,50 @@
-import java.util.Scanner; //here we import class Scanner from package java.util for use Scsnner to input nums from console
+import java.util.Scanner; // Import Scanner class from java.util package to read input from console
 
-public class Main{
+public class Main {
 
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in); //creating object sc to input nums from console
-        int n = sc.nextInt(); //input n value (arr`s size)
-        int[] arr = new int[n];  //creating array with size n (with integers)
-        for(int i=0; i<n; i++){ //running from zero element till the end (n-1) (here they are still empty)
-            arr[i]=sc.nextInt(); //input these values from console (now each has its own value)
+    /**
+     * The main method reads an array from user input and finds the minimum value.
+     * It utilizes the Scanner class to take input and then calls the findMin method.
+     */
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); // Create a Scanner object to read input
+
+        int n = sc.nextInt(); // Read the size of the array
+        int[] arr = new int[n]; // Initialize an array of size n
+
+        // Loop to input array elements
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt(); // Store input values in the array
         }
-        System.out.print(findMin(arr)); //print the result of findMin function (and we are sending our created array to that function)
-        sc.close(); //close the scanner
+
+        System.out.print(findMin(arr)); // Print the minimum value found in the array
+        sc.close(); // Close the scanner to prevent resource leaks
     }
-    public static int findMin(int[] arr){ //function to get a min num from an array
-        if(arr==null || arr.length==0){ //test out condition if this array is empty
-            throw new IllegalArgumentException("Empty array"); //if yes we throw an exception and output "empty array" statement
+
+    /**
+     * This method finds and returns the minimum element in a given integer array.
+
+     * Time Complexity: O(n), where n is the number of elements in the array.
+     * The function iterates through the array once, making a single comparison per element.
+     *
+     * @param arr The input array of integers.
+     * @return The minimum value found in the array.
+     * @throws IllegalArgumentException if the array is null or empty.
+     */
+    public static int findMin(int[] arr) {
+        if (arr == null || arr.length == 0) { // Check if the array is empty or null
+            throw new IllegalArgumentException("Empty array"); // Throw an exception if no elements exist
         }
-        int min=arr[0]; //if no, we create the int variable min and give the value of the first (zero arr[0]) element of the sent array
-        for(int i=1; i<arr.length; i++){ //running from the second element(arr[1]) till the end
-            if(min>arr[i]){ //compare each element with the min variable (compare if an arr[i] element is less than min)
-                min=arr[i]; //if yes, then reset min`s value with arr[i[`s value
+
+        int min = arr[0]; // Initialize min with the first element of the array
+
+        // Loop through the array starting from index 1
+        for (int i = 1; i < arr.length; i++) {
+            if (min > arr[i]) { // Compare each element with min
+                min = arr[i]; // Update min if a smaller element is found
             }
         }
-        return min; //return our final min
+
+        return min; // Return the minimum value found
     }
 }
