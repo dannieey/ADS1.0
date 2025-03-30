@@ -3,8 +3,8 @@ import java.util.Scanner; // Import Scanner class from java.util package to read
 public class Main {
 
     /**
-     * The main method reads an array from user input and finds the minimum value.
-     * It utilizes the Scanner class to take input and then calls the findMin method.
+     * The main method reads an array from user input and calculates its average value.
+     * It utilizes the Scanner class to take input and then calls the findAvg method.
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); // Create a Scanner object to read input
@@ -17,34 +17,32 @@ public class Main {
             arr[i] = sc.nextInt(); // Store input values in the array
         }
 
-        System.out.print(findMin(arr)); // Print the minimum value found in the array
+        System.out.print(findAvg(arr)); // Print the average value found in the array
         sc.close(); // Close the scanner to prevent resource leaks
     }
 
     /**
-     * This method finds and returns the minimum element in a given integer array.
-
+     * This method calculates and returns the average of an integer array.
+     *
      * Time Complexity: O(n), where n is the number of elements in the array.
-     * The function iterates through the array once, making a single comparison per element.
+     * The function iterates through the array once, summing the elements, and then computes the average.
      *
      * @param arr The input array of integers.
-     * @return The minimum value found in the array.
-     * @throws IllegalArgumentException if the array is null or empty.
+     * @return The average value of the elements in the array.
+     * @throws IllegalArgumentException if the array is empty.
      */
-    public static int findMin(int[] arr) {
-        if (arr == null || arr.length == 0) { // Check if the array is empty or null
+    public static double findAvg(int[] arr) {
+        if (arr.length == 0) { // Check if the array is empty
             throw new IllegalArgumentException("Empty array"); // Throw an exception if no elements exist
         }
 
-        int min = arr[0]; // Initialize min with the first element of the array
+        int sum = 0; // Initialize sum to accumulate array elements
 
-        // Loop through the array starting from index 1
-        for (int i = 1; i < arr.length; i++) {
-            if (min > arr[i]) { // Compare each element with min
-                min = arr[i]; // Update min if a smaller element is found
-            }
+        // Loop through the array to calculate the sum
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i]; // Add each element of the array to sum
         }
 
-        return min; // Return the minimum value found
+        return (double) sum / arr.length; // Return the average as a double value
     }
 }
