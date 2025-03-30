@@ -5,7 +5,7 @@ import java.util.Scanner; // Import Scanner class from java.util package to read
 /**
  * The Main class contains the main method for handling user input and computing the factorial of a number.
  */
-public class Problem4 {
+public class Problem_4 {
 
     /**
      * The main method reads an integer from user input and computes its factorial.
