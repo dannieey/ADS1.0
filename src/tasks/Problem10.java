@@ -31,7 +31,7 @@ public class Problem10 {
      * @return The greatest common divisor of a and b.
      */
     public static int gcd(int a, int b) {
-        if (b == 0) return a; // Base case: if b is 0, return a as the GCD
+        if (b == 0) return a; // if b equals to zero, a become a common gcd for a and b, since 0/a=0 and a/a=1
         return gcd(b, a % b); // Recursive step using the Euclidean algorithm
     }
 }
